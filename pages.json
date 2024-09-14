@@ -1,0 +1,83 @@
+{
+	"pages": [{
+		// 只有定义在pages里边的文件我们才能访问
+		// pages中的第一个对象就是首页
+			"path" : "pages/login/login",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
+		},
+		{
+			"path" : "pages/login/zhuce",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
+		},
+		{
+			"path" : "pages/home/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
+		},
+		{
+			"path" : "pages/report/EventReporting2",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
+		},
+		{
+			"path" : "pages/report/EventReportingStep",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
+		},
+		{
+			"path" : "pages/report/EventReportingStep3",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
+		},
+		{
+			"path" : "pages/draft-box",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
+		},
+		{
+			"path" : "pages/approval/ApprovalList",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"height": "50px",
+		"fontSize": "10px",
+		"iconWidth": "24px",
+		"spacing": "3px",
+		"iconfontSrc": "static/customicons.ttf", // app tabbar 字体.ttf文件路径 app 3.4.4+
+		"list": [{
+			"pagePath": "pages/leave/index",
+			"iconPath": "static/qj2.png",
+			"selectedIconPath": "static/qj1.png",
+			"text": "记录冲突事件"
+		}, {
+			"pagePath": "pages/index/index",
+			"iconPath": "static/jl2.png",
+			"selectedIconPath": "static/jl1.png",
+			"text": "查询冲突事件"
+		}]
+	}
+}

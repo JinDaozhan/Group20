@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/user/user",
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "static/qj2.png",
+        "selectedIconPath": "static/qj1.png",
+        "text": "请假申请"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/jl2.png",
+        "selectedIconPath": "static/jl1.png",
+        "text": "请假记录"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

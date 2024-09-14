@@ -1,0 +1,33 @@
+
+.msg {
+		font-family: "PingFang SC";
+		font-weight: 400;
+		font-size: 16px;
+		letter-spacing: 0.08px;
+		text-align: center;
+		color: #808080;
+}
+.img {
+		text-align: center;
+}
+.button-text{
+		font-family: "PingFang SC Bold";
+		font-weight: 700;
+		font-size: 16px;
+		text-align: center;
+		color: #fff;
+}
+.button{
+		width: 283px;
+		height: 50px;
+		border-radius: 25px;
+		background: #2264ff;
+		box-shadow: 0 5px 10px #2264ff33;
+}
+.btnview{
+		margin-top: 180rpx;
+}
+.top{
+		height: 119px;
+		background: linear-gradient(180.00deg, #2264ff 0%, #f5f5f5 100%);
+}
