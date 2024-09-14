@@ -56,6 +56,27 @@
 			{
 				"navigationBarTitleText" : "学生突发事件管理系统"
 			}
+		},
+		{
+			"path" : "pages/particulars/IncidentReportDetails",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
+		},
+		{
+			"path" : "pages/particulars/SuddenEventRecord",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
+		},
+		{
+			"path" : "pages/particulars/IncidentReportDetails2",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
 		}
 	],
 	"tabBar": {

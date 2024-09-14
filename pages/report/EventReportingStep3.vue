@@ -87,7 +87,7 @@
       <div class="data-saved">已为您实时保存数据</div>
 
       <div class="button-group">
-        <button class="primary-button" @click="back">提交审批</button>
+        <button class="primary-button" @click="approval">提交审批</button>
         <button class="secondary-button" @click="draft">保存草稿</button>
       </div>
     </div>
@@ -109,9 +109,9 @@ const draft = () => {
     })
 }
 
-const back = () => {
+const approval = () => {
     uni.navigateTo({
-        url: '/pages/home/index'
+        url: '/pages/approval/ApprovalList'
     })
 }
 </script>

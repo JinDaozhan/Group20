@@ -5,11 +5,8 @@
         <i class="icon-back"></i>
       </button>
       <h1 class="title">草稿箱</h1>
-      <button class="more-button">
-        <i class="icon-more"></i>
-      </button>
     </header>
-    <main class="content">
+    <main class="content" @click="particulars">
       <div v-for="draft in drafts" :key="draft.id" class="draft-item">
         <div class="draft-header">
           <div class="avatar">{{ draft.reporter.initial }}</div>
@@ -65,6 +62,12 @@ const drafts = ref([
     createdAt: '2023.03.20 12:12:12'
   }
 ])
+
+const particulars = () => {
+    uni.navigateTo({
+        url: '/pages/particulars/IncidentReportDetails'
+    })
+}
 </script>
 
 <style scoped>
@@ -86,6 +89,7 @@ const drafts = ref([
 .title {
   font-size: 1.2rem;
   font-weight: bold;
+  margin-right: 150px;
 }
 
 .content {

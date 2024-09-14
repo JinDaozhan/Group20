@@ -9,7 +9,7 @@
         <i class="icon-more"></i>
       </button>
     </header>
-    <main class="content">
+    <main class="content" @click="particulars">
       <div v-for="report in reports" :key="report.id" class="report-item">
         <div class="report-header">
           <div class="avatar">{{ report.reporter.initial }}</div>
@@ -68,6 +68,12 @@ const reports = ref([
     createdAt: '2023.03.20 12:12:12'
   }
 ])
+
+const particulars = () => {
+    uni.navigateTo({
+        url: '/pages/particulars/IncidentReportDetails2'
+    })
+}
 </script>
 
 <style scoped>

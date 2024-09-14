@@ -98,6 +98,34 @@ const approval = () => {
           <text class="incident-id">事件ID: 202303235456789</text>
         </view>
       </view>
+
+      <view v-if="activeTab === 'resolved'" class="incidents">
+        <view v-for="i in 2" :key="i" class="incident">
+          <view class="incident-header">
+            <text class="date">创建于:2023.04.20</text>
+            <text class="status2">已结案</text>
+          </view>
+          <view class="incident-details">
+            <view class="detail-item">
+              <text class="detail-title">突发事件类型：</text>
+              <text class="detail-subtitle">争吵</text>
+            </view>
+            <view class="detail-item">
+              <text class="detail-title">是否报送心理健康中心：</text>
+              <text class="detail-subtitle">是</text>
+            </view>
+            <view class="detail-item">
+              <text class="detail-title">涉及学生人数：</text>
+              <text class="detail-subtitle">2</text>
+            </view>
+          </view>
+          <view class="incident-summary">
+            <text class="summary-title">突发事件概述：</text>
+            <text class="summary-content">争吵争吵争吵争吵争吵争吵争吵争吵争吵争吵</text>
+          </view>
+          <text class="incident-id">事件ID: 202303235456789</text>
+        </view>
+	  </view>	
     </view>
 
     <view class="footer">
@@ -242,6 +270,10 @@ const approval = () => {
 
 .status {
   color: #f97316;
+}
+
+.status2 {
+  color: #00ff00;
 }
 
 .incident-details {
