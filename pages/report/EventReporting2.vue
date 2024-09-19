@@ -1,10 +1,8 @@
 <template>
   <div class="event-reporting">
     <header class="header">
-      <div class="back-button">&#10094;</div>
       <h1>事件上报</h1>
       <div class="more-options">
-        <span class="circle"></span>
       </div>
     </header>
 
@@ -28,8 +26,8 @@
     <div class="content">
       <h2>1.突发事件类型选择（单选）</h2>
       <div class="event-grid">
-        <div v-for="event in events" :key="event.name" class="event-item" @click="selectEvent(event)">
-          <div class="event-icon" v-html="event.icon"></div>
+        <div v-for="event in events" :key="event.name" class="event-item" onclick="changeColor()">
+		  <div class="event-icon" v-html="event.icon"></div>
           <div class="event-name">{{ event.name }}</div>
         </div>
       </div>
@@ -50,7 +48,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup >
 import { ref } from 'vue';
 
 const events = [
@@ -184,7 +182,6 @@ h2 {
 }
 
 .event-item {
-  background-color: #f5f5f5;
   border: 1px solid #e8e8e8;
   border-radius: 5px;
   padding: 10px;

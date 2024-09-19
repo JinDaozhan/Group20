@@ -77,6 +77,13 @@
 			{
 				"navigationBarTitleText" : "学生突发事件管理系统"
 			}
+		},
+		{
+			"path" : "pages/more",
+			"style" : 
+			{
+				"navigationBarTitleText" : "学生突发事件管理系统"
+			}
 		}
 	],
 	"tabBar": {

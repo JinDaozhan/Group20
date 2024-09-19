@@ -45,10 +45,12 @@
 
       <h2>3.选定学生</h2>
       <div class="student-actions">
-        <button class="primary-button">搜索学生选定</button>
-        <button class="secondary-button">新增空白表单</button>
+        <button class="primary-button"  :class="['tab', activeTab === 'unresolved' ? 'active' : '']" @click="activeTab = 'unresolved'">搜索学生选定</button>
+        <button class="secondary-button"  :class="['tab', activeTab === 'resolved' ? 'active' : '']" @click="activeTab = 'resolved'">新增空白表单</button>
       </div>
 
+    <view v-if="activeTab === 'unresolved'" class="incidents">
+    <view v-for="i in 1" :key="i" class="incident">
       <div class="search-bar">
         <input type="text" placeholder="请输入姓名、学号查询" />
         <button class="search-button">🔍</button>
@@ -95,7 +97,80 @@
           <span class="detail-value">{{ selectedStudent.counselor }}</span>
         </div>
       </div>
-    </div>
+	  </view>
+	  </view>
+
+    <view v-if="activeTab === 'resolved'" class="incidents">
+     <view v-for="i in 1" :key="i" class="incident">
+      <div>
+        <label for="studentType">请选择学生类型:</label>
+        <select v-model="studentType" id="studentType">
+          <option value="new">新</option>
+          <option value="existing">已存在</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="name">姓名:</label>
+        <input type="text" v-model="student.name" id="name" placeholder="请输入姓名">
+      </div>
+
+      <div>
+        <label for="idNumber">身份证号:</label>
+        <input type="text" v-model="student.idNumber" id="idNumber" placeholder="请输入身份证号">
+      </div>
+
+      <div>
+        <label for="gender">性别:</label>
+        <select v-model="student.gender" id="gender">
+          <option value="male">男</option>
+          <option value="female">女</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="address">家庭住址:</label>
+        <input type="text" v-model="student.address" id="address" placeholder="请输入详细地址">
+      </div>
+
+      <div>
+        <label for="college">学院:</label>
+        <input type="text" v-model="student.college" id="college" placeholder="请选择学院">
+      </div>
+
+      <div>
+        <label for="major">专业:</label>
+        <input type="text" v-model="student.major" id="major" placeholder="请选择专业">
+      </div>
+
+      <div>
+        <label for="class">班级:</label>
+        <input type="text" v-model="student.class" id="class" placeholder="请输入班级">
+      </div>
+
+      <div>
+        <label for="dormitory">寝室:</label>
+        <input type="text" v-model="student.dormitory" id="dormitory" placeholder="请输入寝室">
+      </div>
+
+      <div>
+        <label for="counselor">辅导员:</label>
+        <input type="text" v-model="student.counselor" id="counselor" placeholder="请输入辅导员">
+      </div>
+
+      <h3>已添加学生</h3>
+      <div class="student-list">
+        <div v-for="student in addedStudents" :key="student.id" class="student-item">
+          <div class="student-info">
+            <div class="student-name">{{ student.name }}</div>
+            <div class="student-id">{{ student.id }}</div>
+          </div>
+          <button class="remove-button" @click="removeStudent(student)">🗑️</button>
+        </div>
+      </div>
+	</view>
+   </view>
+	</div>
 
     <div class="bottom-buttons">
       <button class="primary-button" @click="step3">下一步</button>
@@ -107,6 +182,9 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import { ChevronLeft, MoreHorizontal } from 'lucide-vue-next'
+// 定义响应式变量
+const activeTab = ref('unresolved')
 
 const staffMembers = [
   { id: 1, name: '邱秀英', initial: '邱' },
@@ -160,6 +238,18 @@ const selectedStaffNames = computed(() => {
   return selectedStaffMembers.value.map(staff => staff.name).join('、');
 });
 
+const formFields = [
+  { name: 'name', label: '姓名:', type: 'text', placeholder: '请输入姓名' },
+  { name: 'id', label: '身份证号:', type: 'text', placeholder: '请输入身份证号' },
+  { name: 'gender', label: '性别:', type: 'select', placeholder: '请选择性别' },
+  { name: 'residence', label: '家庭住址:', type: 'select', placeholder: '请选择所在区县' },
+  { name: 'address', label: '', type: 'text', placeholder: '请输入详细地址' },
+  { name: 'school', label: '学校:', type: 'select', placeholder: '请选择学校' },
+  { name: 'major', label: '专业:', type: 'select', placeholder: '请选择专业' },
+  { name: 'class', label: '班级:', type: 'text', placeholder: '请输入班级' },
+  { name: 'counselor', label: '辅导员:', type: 'text', placeholder: '请输入辅导员姓名' },
+]
+
 const step1 = () => {
     uni.navigateTo({
         url: '/pages/report/EventReporting2'
@@ -177,6 +267,28 @@ const draft = () => {
         url: '/pages/draft-box'
     })
 }
+
+    const selectedTeacher = ref('');
+    const studentType = ref('');
+    const student = ref({
+      name: '',
+      idNumber: '',
+      gender: '',
+      address: '',
+      college: '',
+      major: '',
+      class: '',
+      dormitory: '',
+      counselor: ''
+    });
+
+    const submitForm = () => {
+      console.log('Form submitted:', student.value);
+    };
+
+    const goBack = () => {
+      console.log('Go back to previous step');
+    };
 </script>
 
 <style scoped>
@@ -333,9 +445,10 @@ h2 {
 }
 
 .primary-button {
-  background-color: #1890ff;
   color: white;
   border: none;
+  color: #1890ff;
+  border: 1px solid #1890ff;
 }
 
 .secondary-button {
@@ -423,5 +536,35 @@ h2 {
 
 .bottom-buttons button {
   width: 100%;
+}
+
+.report-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
 }
 </style>
