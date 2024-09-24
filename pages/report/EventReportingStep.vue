@@ -1,10 +1,8 @@
 <template>
   <div class="event-reporting">
     <header class="header">
-      <div class="back-button">&#10094;</div>
       <h1>事件上报</h1>
       <div class="more-options">
-        <span class="circle"></span>
       </div>
     </header>
 
